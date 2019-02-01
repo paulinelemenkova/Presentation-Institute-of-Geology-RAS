@@ -16,7 +16,7 @@
 \usepackage{metalogo}
 \usepackage[super]{nth}
 
-\usepackage{caption}
+\usepackage[font={small,it}]{caption}
 	\setbeamertemplate{caption}[numbered]
 \usepackage{graphicx}
 \usepackage{graphics}
@@ -137,7 +137,7 @@ end
 % ----------------------------------------------------------------------------
 
 
-\subsection{Introduction}
+\subsection{Research}
 
 \begin{frame}\frametitle{Research Goals}
 	\begin{exampleblock}{Research Objective}
@@ -147,12 +147,12 @@ end
 - is to identify main impact factors affecting variations in the geomorphology of the Mariana Trench: steepness angle and structure of the sediment compression. 
 	\end{exampleblock}
 	\begin{alertblock}{Research Focus}
-The work is focused upon understanding variability of factors responsible for the deep ocean trench formation and comparative analysis of its geomorphic structure. It contributes towards investigations of the geology of the Pacific Ocean and the interplay between geomorphic, geological, tectonic and volcanic factors affecting submarine landform formation.
+- is upon understanding variability of factors responsible for the deep ocean trench formation and comparative analysis of its geomorphic structure. It contributes towards investigations of the geology of the Pacific Ocean and the interplay between geomorphic, geological, tectonic and volcanic factors affecting submarine landform formation.
 	\end{alertblock}
 \end{frame}
 	
 \section{Introduction}
-\subsection{Introduction}
+\subsection{Summary}
 
 \begin{frame}\frametitle{Introduction - I}
 Mariana Trench is one of the 37 known deep-water trenches of the World Ocean, 28 of which located in the margin areas of the tectonic plates of the Pacific Ocean (Pushcharovskij et al, 1984). It forms the peripheral framing, of which five are located in the Atlantic (Bogdanov, 1997) and four in Indian Ocean (Gurvich, 1998).\\ Mariana Trench creates a \textcolor{red}{complex of the deeply interrelated factors}, determinants and processes. Factors affecting formation, geomorphic development and bathymetric patterns of the Mariana Trench are diverse:\\
@@ -214,9 +214,9 @@ Study area: Mariana Trench: the deepest place of the Earth, located in the west 
 
 \begin{frame}\frametitle{Tectonics - I}
 \begin{itemize}
-    \item<1-> Mariana Trench crosses four tectonic plates: Mariana, Caroline, Pacific and Philippine. 
-    \item<2-> The formation of the Mariana Trench is caused by complex and diverse geomorphic factors. 
-    \item<3-> Mariana Trench presents a complex system with highly interconnected factors: 
+    \item Mariana Trench crosses four tectonic plates: Mariana, Caroline, Pacific and Philippine. 
+    \item The formation of the Mariana Trench is caused by complex and diverse geomorphic factors. 
+    \item Mariana Trench presents a complex system with highly interconnected factors: 
     	 \begin{itemize}
             	\item geology (sediment thickness across 4 tectonic plates), 
             	\item bathymetry (coordinates, depth values in the observation points), 
@@ -243,14 +243,14 @@ The system of the Mariana trench is complicated and consists of the interrelated
 \begin{frame}\frametitle{Technical Approach}
 To study such a complex system as Mariana Trench, an objective method combining various approaches (statistics, R, GIS, descriptive analysis and graphical plotting) was performed. \\Thus, the methodology includes following steps:
 \begin{itemize}
-    \item<1-> Data capture in GIS, vector thematic data were processed in QGIS: tectonics, bathymetry, geomorphology and geology.
-    \item<2-> Programming on R language
+    \item Data capture in GIS, vector thematic data were processed in QGIS: tectonics, bathymetry, geomorphology and geology.
+    \item Programming on R language
       \begin{itemize}
             \item statistics
             \item descriptive analysis 
             \item graphical plotting  
         \end{itemize}
-      \item<3-> Geospatial comparative analysis of variables by 4 tectonic plates
+      \item Geospatial comparative analysis of variables by 4 tectonic plates
 \end{itemize}
 \end{frame}
 
@@ -262,6 +262,7 @@ To study such a complex system as Mariana Trench, an objective method combining 
 % *** START: Methodology <<<
 % ----------------------------------------------------------------------------
 \section{Methodology}
+
 \subsection{Workflow}
 \begin{frame}
 \frametitle{Methodology (Brief)}
@@ -276,15 +277,8 @@ The methodology includes following steps.
       \item<3-> thirdly, performed geospatial comparative analysis to estimate effects of the data distribution by 4 tectonic plates: slope angle, igneous volcanic areas and depths.
 \end{itemize}
 \end{frame}
-% ----------------------------------------------------------------------------
-% *** END: Methodology >>>
-% ----------------------------------------------------------------------------
 
-% ----------------------------------------------------------------------------
-% *** START: Data <<<
-% ----------------------------------------------------------------------------
-\section{GIS Project}
-\subsection{GIS digitizing}
+\subsection{GIS Project}
 \begin{frame}
 \frametitle{Data Capture in GIS}
 			
@@ -296,13 +290,7 @@ Geospatial tasks by QGIS plugins: reading coordinates, crossing profile lines, r
 	\caption{Digitizing 25 bathymetric profiles across the Mariana Trench}\label{fig:2-1}
 \end{figure}		
 \end{frame}
-% ----------------------------------------------------------------------------
-% *** END: Data >>>
-% ----------------------------------------------------------------------------
 
-% ----------------------------------------------------------------------------
-% *** START: Workflow <<<
-% ----------------------------------------------------------------------------
 \subsection{GIS Workflow}
 \begin{frame}
 \frametitle{Digitizing bathymetric profiles}
@@ -353,23 +341,33 @@ table [x=y2,y=ELEV, col sep=comma] {MyTab18.csv};
 \end{figure}		
 \end{frame}
 
-\begin{frame}\frametitle{\LaTeX \space for bathymetry:\\3D plotting}
+\begin{frame}\frametitle{\LaTeX \space for bathymetry: 3D plotting}
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=11cm]{Fig-2-4.jpg}
+		\includegraphics[width=11.5cm]{Fig-2-4.jpg}
 	\caption{\LaTeX \space Plotting: Marina Arc, 3D View}\label{fig:2-4}
 \end{figure}		
 \end{frame}
 
+% ----------------------------------------------------------------------------
+% *** END: Methodology >>>
+% ----------------------------------------------------------------------------
+
+% ----------------------------------------------------------------------------
+% *** START: R <<<
+% ----------------------------------------------------------------------------
+
 \section{Statistical Analysis by R}
 \subsection{Data Distribution}
-\begin{frame}\frametitle{Graph:\\bathymetric profiles}
+
+\begin{frame}\frametitle{Graph: bathymetric profiles}
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=4cm]{Fig-2-5.jpg}
 	\caption{Graphs of the 25 bathymetric profiles, Mariana Trench}\label{fig:2-5}
 \end{figure}		
 \end{frame}
+
 
 \begin{frame}[fragile]\frametitle{R code to generate boxplots 'whiskerplots' using default boxplot function}
 \begin{lstlisting}[language=R]
@@ -1617,7 +1615,7 @@ plot(data , pch=1 , cex=0.3 , col=rgb(0.5, 0.8, 0.9, 0.7))
 \end{frame}
 
 % ----------------------------------------------------------------------------
-% *** END: Workflow >>>
+% *** END: R >>>
 % ----------------------------------------------------------------------------
 
 % ----------------------------------------------------------------------------
@@ -1643,7 +1641,7 @@ Summaries of the variations of the local polynomial regression of the bathymetri
     \item Decrease of depth: profiles \textnumero 23, 24, 25, Caroline t.p.
     \item Profiles \textnumero 23 and 24 demonstrate the deepest depth values. 
     \item The absolute depths in the profiles 22 to 25 on the Caroline t.p. become shallower than those on Philippine and Pacific t.p.
-    \item The majority of the observation points: Pacific and Philippine t.p., following by Mariana t.p.. Caroline t.p. only covers a few points. 
+    \item The majority of the observation points: Pacific and Philippine t.p., following by Mariana t.p. Caroline t.p. only covers a few points. 
     \item Variability in the geological factors of the underlying t.p. triggers changes in bathymetric settings
 \end{itemize}
 \end{frame}	
@@ -1810,16 +1808,22 @@ The funding for this research has been provided by the China Scholarship Council
 \section{Literature}
 \begin{frame}[allowframebreaks]
 \frametitle{References}
-\begin{enumerate}	\item Bogdanov, Yu. l. Gidrotermal'nye rudoproyavleniya riftov Sredinno-Atlanticheskogo
+\begin{enumerate}
+	\item Bogdanov, Yu. l. Gidrotermal'nye rudoproyavleniya riftov Sredinno-Atlanticheskogo
 hrebta (Hydrothermal deposits rift Mid-Atlantic ridge). M: Nauchnyj Mir, 1997, 167 p.
 	\item Boutelier D., Oncken O., Cruden A.R. (2014). Trench-parallel shortening in the forearc caused by subduction along a seaward-concave plate boundary: Insights from analogue modelling experiments. Tectonophysics 611, 192-203.
 	\item Chase C.G. (1978). Extension behind island arcs and motions relative to hot spots. Journal of Geophysical Research 83, 5385-5388.
-	\item Dic R. Evolyuciya kontinentov i okeanicheskih bassejnov kak rezul'tat spredinga okeanicheskogo dna (Evolution of continents and ocean basins as a result of ocean floor spreading) // Novaya global'naya tektonika. M.: Mir, 1974.	\item Gurvich E. G. Metallonosnye osadki Mirovogo okeana (Metalliferous sediments of the World ocean). M: Nauchnyj Mir, 1998.
-	\item Heuret A., Lallemand S. (2005). Plate motions, slab dynamics and back-arc deformation. Physics of the Earth and Planetary Interiors 149, 31-51.	\item Horleston A.C., Helffrich G.R. (2012) Constraining sediment subduction: A converted phase study of the Aleutians and Marianas. Earth and Plan. Sci. Let. 359-360, 141-151.
-	\item Hussong D.M., Uyeda S. (1982). Tectonic process and the history of the Mariana Arc: A synthesis of the results of deep sea drilling project leg 60. Initial Reports of the Deep Sea Drilling Project, 60: 909-929.		\item Kuptsov V. M. (Ed.) Gidrotermal'nye obrazovaniya riftovyh zon okeana (Hydrothermal formation of rift zones of the ocean) // Lisicyn A. P., Bogdanov Yu. A., Gurvich E. G. AS USSR, P. P. Shirshov Institute of Oceanology, RAS. M.: Nauka, 1990.
+	\item Dic R. Evolyuciya kontinentov i okeanicheskih bassejnov kak rezul'tat spredinga okeanicheskogo dna (Evolution of continents and ocean basins as a result of ocean floor spreading) // Novaya global'naya tektonika. M.: Mir, 1974.
+	\item Gurvich E. G. Metallonosnye osadki Mirovogo okeana (Metalliferous sediments of the World ocean). M: Nauchnyj Mir, 1998.
+	\item Heuret A., Lallemand S. (2005). Plate motions, slab dynamics and back-arc deformation. Physics of the Earth and Planetary Interiors 149, 31-51.
+	\item Horleston A.C., Helffrich G.R. (2012) Constraining sediment subduction: A converted phase study of the Aleutians and Marianas. Earth and Plan. Sci. Let. 359-360, 141-151.
+	\item Hussong D.M., Uyeda S. (1982). Tectonic process and the history of the Mariana Arc: A synthesis of the results of deep sea drilling project leg 60. Initial Reports of the Deep Sea Drilling Project, 60: 909-929.	
+	\item Kuptsov V. M. (Ed.) Gidrotermal'nye obrazovaniya riftovyh zon okeana (Hydrothermal formation of rift zones of the ocean) // Lisicyn A. P., Bogdanov Yu. A., Gurvich E. G. AS USSR, P. P. Shirshov Institute of Oceanology, RAS. M.: Nauka, 1990.
 	\item Lallemand S., Heuret A., Faccenna C., Funiciello F. (2008). Subduction dynamics as revealed by trench migration. Tectonics 27, 3014.
 	\item Morgan, W. Okeanicheskie, glubokovodnye zheloba, bol'shie razlomy i bloki zemnoi kory (Oceanic, deep-sea trenches, large faults and crustal blocks) // The latest global tectonics. Ed. by Luchickij, I. V. M.: Mir, 1974.
-	\item Pushcharovskij Yu. M., Neprochnov Yu. P. (Ed.). Structure of the North-West Pacific bottom ocean: Geophysics, magmatism, tectonics. (Stroenie dna severo-zapada Tihogo okeana: Geofizika, magmatizm, tektonika). M.: Nauka, 1984, 226 p.	\item Ruff L., Kanamori H. (1980). Seismicity and the subduction process. Physics of the Earth and Planetary Interiors 23, 240-252.\end{enumerate}
+	\item Pushcharovskij Yu. M., Neprochnov Yu. P. (Ed.). Structure of the North-West Pacific bottom ocean: Geophysics, magmatism, tectonics. (Stroenie dna severo-zapada Tihogo okeana: Geofizika, magmatizm, tektonika). M.: Nauka, 1984, 226 p.
+	\item Ruff L., Kanamori H. (1980). Seismicity and the subduction process. Physics of the Earth and Planetary Interiors 23, 240-252.
+\end{enumerate}
 \end{frame}
 % ----------------------------------------------------------------------------
 % *** END: Literature >>>
