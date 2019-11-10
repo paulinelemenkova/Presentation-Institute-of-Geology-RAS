@@ -1,3 +1,4 @@
+% Lua
 \documentclass[pdflatex,compress,10pt,
 	xcolor={dvipsnames,dvipsnames,svgnames,x11names,table},
 	hyperref={colorlinks = true,breaklinks = true, urlcolor = NavyBlue, breaklinks = true}]{beamer}
@@ -29,7 +30,8 @@
 \usepackage{colortbl} %% цветная таблица
 \setlength{\arrayrulewidth}{0.3mm}
 \usepackage{wrapfig}
-\usepackage{smartdiagram}
+\usepackage{fontspec}
+\usepackage{microtype}
 
 \usepackage{ifthen}
 \usepackage{luacode}
@@ -38,6 +40,81 @@
 %\usepackage{verbatim}
 %	\newcommand{\verbatimfont}[1]{\renewcommand{\verbatim@font}{\ttfamily#1}}
 \usepackage{fancyvrb}[frame=single,commandchars=\\\{\},rulecolor=\color{red}]% verbatim
+
+% ----------------------------------------------------------------------------
+% *** START BIBLIOGRAPHY <<<
+% ----------------------------------------------------------------------------
+\usepackage[
+	backend=biber, 
+	style = numeric,
+%	style=authortitle,
+%	style=ieee,
+%	style=nature,
+%	style=science,
+%	style=apa,
+%	style=mla,
+%	style=phys, 
+	maxbibnames=99,
+	citestyle=numeric, % citestyle=authoryear,
+	giveninits=true,
+	isbn=true,
+	url=true,
+	natbib=true,
+	sorting=ndymdt, % Sort by name (descending), year, month (descending), title.
+	bibencoding=utf8,
+	useprefix=false,
+	language=auto, 
+	autolang=other,
+	backref=true,
+	backrefstyle=none,
+	indexing=cite,
+]{biblatex}
+\DeclareSortingTemplate{ndymdt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{99}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{99}
+  }
+  \sort{
+    \field{sorttitle}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=4,padchar=0]{volume}
+    \literal{9999}
+  }
+}
+
+\addbibresource{Scatterplot.bib}
+\renewcommand*{\bibfont}{\tiny} %\scriptsize %\footnotesize%\scriptsize%\tiny
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+
+% ----------------------------------------------------------------------------
+% *** END BIBLIOGRAPHY <<<
+% ----------------------------------------------------------------------------
 
 %%%%%%%%% R: начало %%%%%%%
 \usepackage{listings} % insert R codes
@@ -114,7 +191,7 @@ end
 \subtitle{(Pacific, Philippine, Mariana and Caroline): \\a Geostatistical Analysis by R}
 \author{Polina Lemenkova}
 \institute{Ocean University of China, College of Marine Geo-Sciences}
-\date{\today}
+\date{February 1, 2019}
 
 %%%%%%%%%%%%%%%%%% END SETUP %%%%%%%%%%%%%%
 \begin{document}
@@ -1802,33 +1879,6 @@ The funding for this research has been provided by the China Scholarship Council
 % *** END: Acknowledgements >>>
 % ----------------------------------------------------------------------------
 % ----------------------------------------------------------------------------
-% *** START: Literature <<<
-% ----------------------------------------------------------------------------
-
-\section{Literature}
-\begin{frame}[allowframebreaks]
-\frametitle{References}
-\begin{enumerate}
-	\item Bogdanov, Yu. l. Gidrotermal'nye rudoproyavleniya riftov Sredinno-Atlanticheskogo
-hrebta (Hydrothermal deposits rift Mid-Atlantic ridge). M: Nauchnyj Mir, 1997, 167 p.
-	\item Boutelier D., Oncken O., Cruden A.R. (2014). Trench-parallel shortening in the forearc caused by subduction along a seaward-concave plate boundary: Insights from analogue modelling experiments. Tectonophysics 611, 192-203.
-	\item Chase C.G. (1978). Extension behind island arcs and motions relative to hot spots. Journal of Geophysical Research 83, 5385-5388.
-	\item Dic R. Evolyuciya kontinentov i okeanicheskih bassejnov kak rezul'tat spredinga okeanicheskogo dna (Evolution of continents and ocean basins as a result of ocean floor spreading) // Novaya global'naya tektonika. M.: Mir, 1974.
-	\item Gurvich E. G. Metallonosnye osadki Mirovogo okeana (Metalliferous sediments of the World ocean). M: Nauchnyj Mir, 1998.
-	\item Heuret A., Lallemand S. (2005). Plate motions, slab dynamics and back-arc deformation. Physics of the Earth and Planetary Interiors 149, 31-51.
-	\item Horleston A.C., Helffrich G.R. (2012) Constraining sediment subduction: A converted phase study of the Aleutians and Marianas. Earth and Plan. Sci. Let. 359-360, 141-151.
-	\item Hussong D.M., Uyeda S. (1982). Tectonic process and the history of the Mariana Arc: A synthesis of the results of deep sea drilling project leg 60. Initial Reports of the Deep Sea Drilling Project, 60: 909-929.	
-	\item Kuptsov V. M. (Ed.) Gidrotermal'nye obrazovaniya riftovyh zon okeana (Hydrothermal formation of rift zones of the ocean) // Lisicyn A. P., Bogdanov Yu. A., Gurvich E. G. AS USSR, P. P. Shirshov Institute of Oceanology, RAS. M.: Nauka, 1990.
-	\item Lallemand S., Heuret A., Faccenna C., Funiciello F. (2008). Subduction dynamics as revealed by trench migration. Tectonics 27, 3014.
-	\item Morgan, W. Okeanicheskie, glubokovodnye zheloba, bol'shie razlomy i bloki zemnoi kory (Oceanic, deep-sea trenches, large faults and crustal blocks) // The latest global tectonics. Ed. by Luchickij, I. V. M.: Mir, 1974.
-	\item Pushcharovskij Yu. M., Neprochnov Yu. P. (Ed.). Structure of the North-West Pacific bottom ocean: Geophysics, magmatism, tectonics. (Stroenie dna severo-zapada Tihogo okeana: Geofizika, magmatizm, tektonika). M.: Nauka, 1984, 226 p.
-	\item Ruff L., Kanamori H. (1980). Seismicity and the subduction process. Physics of the Earth and Planetary Interiors 23, 240-252.
-\end{enumerate}
-\end{frame}
-% ----------------------------------------------------------------------------
-% *** END: Literature >>>
-% ----------------------------------------------------------------------------
-% ----------------------------------------------------------------------------
 % *** START: Final Slide <<<
 % ----------------------------------------------------------------------------
 
@@ -1844,4 +1894,20 @@ hrebta (Hydrothermal deposits rift Mid-Atlantic ridge). M: Nauchnyj Mir, 1997, 1
 % ----------------------------------------------------------------------------
 % *** END: Final Slide >>>
 % ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+% *** START: Literature <<<
+% ----------------------------------------------------------------------------
+
+\section{Bibliography}
+\Large{Bibliography}
+
+\microtypesetup{protrusion=false}
+\scriptsize
+\nocite{*}
+\printbibliography[heading=none]
+
+% ----------------------------------------------------------------------------
+% *** END: Literature >>>
+% ----------------------------------------------------------------------------
+
 \end{document}
